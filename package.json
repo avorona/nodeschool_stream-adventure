@@ -1,0 +1,34 @@
+{
+  "name": "stream-adventure",
+  "version": "1.0.0",
+  "description": "nodeschool.io workshop",
+  "main": "beep_boop.js",
+  "dependencies": {
+    "concat-stream": "^1.6.0",
+    "duplexer2": "^0.1.4",
+    "request": "^2.83.0",
+    "split": "^1.0.1",
+    "stream-combiner": "^0.2.2",
+    "tar": "^4.4.0",
+    "through2": "^2.0.3",
+    "trumpet": "^1.7.2",
+    "websocket-stream": "^5.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avorona/nodeschool_stream-adventure.git"
+  },
+  "keywords": [
+    "nodeschool"
+  ],
+  "author": "avorona",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avorona/nodeschool_stream-adventure/issues"
+  },
+  "homepage": "https://github.com/avorona/nodeschool_stream-adventure#readme"
+}
