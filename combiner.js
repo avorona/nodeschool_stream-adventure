@@ -1,38 +1,34 @@
 const combine = require('stream-combiner');
-const split = require('split')
-const through =require('through2');
+const split = require('split');
+const through = require('through2');
 const zlib = require('zlib');
 
-module.exports = function () {
-
+module.exports = function() {
   let bookShell;
-  function countBooks(buffer, _,next)  {
+  function countBooks(buffer, _, next) {
+    if (buffer.length === 0) return next();
+    const row = JSON.parse(buffer);
 
-    if (buffer.length === 0 ) return next();
-    const row = JSON.parse(buffer)
-
-    if (row.type === "genre") {
-   
+    if (row.type === 'genre') {
       if (bookShell) {
         this.push(JSON.stringify(bookShell) + '\n');
       }
 
-      bookShell = { name: row.name , books: []}  
+      bookShell = { name: row.name, books: [] };
     } else if (row.type === 'book') {
-      bookShell.books.push(row.name)
+      bookShell.books.push(row.name);
     }
-    next()
+    next();
   }
 
-  function end(done){
+  function end(done) {
     if (bookShell) {
-      this.push(JSON.stringify(bookShell) + '\n')
+      this.push(JSON.stringify(bookShell) + '\n');
     }
     done();
   }
 
-  const stream =  through(countBooks,end)
+  const stream = through(countBooks, end);
 
-return combine (split(), stream, zlib.createGzip());
-
+  return combine(split(), stream, zlib.createGzip());
 };
