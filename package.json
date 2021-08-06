@@ -9,7 +9,7 @@
     "request": "^2.83.0",
     "split": "^1.0.1",
     "stream-combiner": "^0.2.2",
-    "tar": "^4.4.8",
+    "tar": "^6.1.4",
     "through2": "^2.0.3",
     "trumpet": "^1.7.2",
     "websocket-stream": "^5.1.1"
